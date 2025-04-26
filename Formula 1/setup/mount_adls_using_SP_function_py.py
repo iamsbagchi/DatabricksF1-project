@@ -14,8 +14,8 @@ storage_acount = dbutils.widgets.get("storage_account")
 
 def mount_azure_storage(storage_account_name, container_name):
   # getting secret from scope and keyVault
-  client_id = "3384e6c6-74f0-464e-b0fd-eb3fada10da9"
-  tenant_id = "17d74602-6531-4b1d-b217-fdcad54d1e13"
+  client_id = dbutils.secrets.get(scope= "formula1-scope", key="databricksudemyf1dl-sp-client")
+  tenant_id = dbutils.secrets.get(scope= "formula1-scope", key="databricksudemyf1dl-sp-tenant")
   secret = dbutils.secrets.get(scope= "formula1-scope", key="databricksudemyf1dl-sp-secret")
 
   #Spark config
